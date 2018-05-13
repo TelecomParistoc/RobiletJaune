@@ -12,7 +12,7 @@ set_wheels_gap(202)
 print "Linear coeffs:"
 set_linear_P(800)
 print "P: ", get_linear_P()
-set_linear_I(300)
+set_linear_I(200)
 print "I: ", get_linear_I()
 set_linear_D(1000)
 print "D: ", get_linear_D()
