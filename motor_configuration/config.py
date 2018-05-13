@@ -10,22 +10,22 @@ set_wheels_gap(202)
 
 #PID
 print "Linear coeffs:"
-set_linear_P(800)
+set_linear_P(300)
 print "P: ", get_linear_P()
-set_linear_I(200)
+set_linear_I(1)
 print "I: ", get_linear_I()
-set_linear_D(1000)
+set_linear_D(100)
 print "D: ", get_linear_D()
 print "Angular coeffs:"
-set_angular_P(100)
+set_angular_P(80)
 print "P: ", get_angular_P()
-set_angular_I(5)
+set_angular_I(0)
 print "I: ", get_angular_I()
-set_angular_D(7000)
+set_angular_D(10000)
 print "D: ", get_angular_D()
 
 #Speed
-set_linear_cruise_speed(30)
+set_linear_cruise_speed(100)
 print "Linear cruise speed :", get_linear_cruise_speed()
 set_linear_max_acceleration(30)
 print "Linear max acceleration :", get_linear_max_acceleration()
