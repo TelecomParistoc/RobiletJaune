@@ -27,6 +27,14 @@ LOW_TORQUE                  = 10       # in range [0, 100]
 # ie we don't test with the real jack, we just simulate it
 #with the real jack, it must be gpio.INPUT )
 
+##################     PIN INITIALIZATION           ############################
+
+front_sensors_pin_list_bcm = list(map(gpio.gpio_index_of_wpi_pin,   [3, 4]))
+rear_sensors_pin_list_bcm = list(map(gpio.gpio_index_of_wpi_pin,    [2, 0]))
+
+for pin in front_sensors_pin_list_bcm + rear_sensors_pin_list_bcm:
+    gpio.set_pull_up_down(pin, gpio.PULL_DOWN)
+    gpio.set_pin_mode(pin, gpio.INPUT)
 
 ##################     CONSTRUCTION OF THE ROBOT    ############################
 
@@ -50,4 +58,17 @@ def grobot_time_elapsed():
 	getattr(robot, name).set_torque(0)
     gpio.digital_write(shaker_pin_bcm, 0)
     robot.emergency_stop()
+
+def is_obstacle_forwards():
+    for sensor in front_sensors_pin_list_bcm:
+        if gpio.digital_read(sensor) == 1:
+            return True
+    return False
+
+def is_obstacle_backwards():
+    for sensor in rear_sensors_pin_list_bcm:
+        if gpio.digital_read(sensor) == 1:
+            return True
+    return False
+
 

@@ -18,7 +18,14 @@ STARTING_HEADING = None
 def log(message):
     print message
 
-robot.move(1000)
-robot.turn(180)
-robot.move(1000)
 
+robot.add_sequence("main_sequence")
+robot.add_parallel(robot.move, [1000])
+robot.wait()
+robot.add_parallel(robot.move, [-1000])   
+robot.wait()
+robot.sequence_done()
+
+robot.start_sequence("main_sequence")
+robot.wait_sequence()
+robot.stop() 
