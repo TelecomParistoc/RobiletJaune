@@ -6,3 +6,4 @@
 * Enjoy
 
 Note: sur Arch cela ne fonctionne pas par défaut, il faut activer le mdns: https://wiki.archlinux.fr/Avahi
+J'ai dû également dans mon network manager sous l'onglet "ethernet" choisir le device qui a un nom (et pas uniquement une adresse mac).
