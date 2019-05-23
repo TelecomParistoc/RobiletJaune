@@ -5,3 +5,4 @@
 * `ssh pi@raspberry-name-here.local`
 * Enjoy
 
+Note: sur Arch cela ne fonctionne pas par défaut, il faut activer le mdns: https://wiki.archlinux.fr/Avahi
